@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Инвест-Калькулятор 2026</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #121212; color: white; text-align: center; padding: 50px; }
+        .card { background: #1e1e1e; padding: 30px; border-radius: 15px; display: inline-block; border: 1px solid #f3ba2f; }
+        input { padding: 10px; margin: 10px; border-radius: 5px; border: none; }
+        .btn { background: #f3ba2f; color: black; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 20px; }
+        .result { font-size: 1.5em; color: #f3ba2f; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Твой пассивный доход на Bybit</h1>
+        <p>Введите сумму инвестиций ($):</p>
+        <input type="number" id="amount" placeholder="Например, 1000" oninput="calc()">
+        <div class="result" id="res">Доход в месяц: 0$</div>
+        
+        <a href="https://www.bybit.com/register?affiliate_id=ТВОЙ_ID" class="btn">ОТКРЫТЬ СЧЕТ И ПОЛУЧИТЬ БОНУС</a>
+    </div>
+
+    <script>
+        function calc() {
+            let val = document.getElementById('amount').value;
+            // Допустим, средний доход 10% в месяц
+            let profit = (val * 0.1).toFixed(2);
+            document.getElementById('res').innerText = "Доход в месяц: " + profit + "$";
+        }
+    </script>
+</body>
+</html>
