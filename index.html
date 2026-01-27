@@ -4,6 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Рассчитайте доход на Bybit 2026. Получите бонусы до $30,000 по коду ZQ8L8AV.">
+    <title>Bybit Rewards Hub 2026</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0b0e11; color: white; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .card { background: #161a1e; padding: 30px 20px; border-radius: 24px; border: 1px solid #f7a600; box-shadow: 0 0 50px rgba(247, 166, 0, 0.2); max-width: 380px; width: 90%; position: relative; }
+        .logo { font-size: 40px; margin-bottom: 10px; }
+        h1 { color: #f7a600; font-size: 22px; text-transform: uppercase; margin: 10px 0; }
+        input { padding: 15px; margin: 10px 0; border-radius: 12px; border: 1px solid #474d57; background: #1e2329; color: #f7a600; width: 85%; font-size: 20px; text-align: center; outline: none; transition: 0.3s; }
+        input:focus { border-color: #f7a600; box-shadow: 0 0 10px rgba(247, 166, 0, 0.3); }
+        .result-box { background: rgba(247, 166, 0, 0.05); padding: 15px; border-radius: 15px; margin: 15px 0; border: 1px dashed #f7a600; }
+        .result { font-size: 1.2em; color: #f7a600; font-weight: bold; margin-bottom: 5px; }
+        .bonus-text { font-size: 0.9em; color: #00c087; font-weight: bold; }
+        .rewards-list { text-align: left; font-size: 13px; color: #d1d4dc; margin: 15px 0; padding-left: 10px; list-style: none; }
+        .rewards-list li::before { content: "✅"; margin-right: 8px; }
+        .btn { background: linear-gradient(90deg, #f7a600, #ffc400); color: black; padding: 18px; text-decoration: none; font-weight: 800; border-radius: 12px; display: block; font-size: 16px; transition: 0.3s; text-transform: uppercase; animation: pulse 2s infinite; }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        .footer-text { font-size: 12px; color: #848e9c; margin-top: 15px; cursor: pointer; }
+        .copy-hint { font-size: 10px; color: #f7a600; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">💎</div>
+        <h1>Награды Bybit 2026</h1>
+        <p style="font-size: 14px; color: #848e9c;">Введите сумму депозита для расчета бонусов:</p>
+        
+        <input type="number" id="amount" placeholder="Депозит ($)" oninput="calc()">
+        
+        <div class="result-box">
+            <div class="result" id="res">Прибыль: $0 / мес</div>
+            <div class="bonus-text" id="bonus">Ваш бонус: $0</div>
+        </div>
+
+        <ul class="rewards-list">
+            <li>Welcome-пакет до $30,000</li>
+            <li>Копитрейдинг включен</li>
+            <li>VIP скидка 20% по коду ZQ8L8AV</li>
+        </ul>
+        
+        <a href="https://www.bybit.com/invite?ref=ZQ8L8AV" target="_blank" class="btn">Забрать бонусы</a>
+        
+        <div class="footer-text" onclick="copyCode()">
+            Код партнера: <b id="code">ZQ8L8AV</b>
+            <span class="copy-hint">(кликните, чтобы скопировать)</span>
+        </div>
+    </div>
+
+    <script>
+        function copyCode() {
+            navigator.clipboard.writeText("ZQ8L8AV");
+            alert("Код ZQ8L8AV скопирован! Вставьте его при регистрации.");
+        }
+
+        function calc() {
+            let val = parseFloat(document.getElementById('amount').value);
+            if (isNaN(val) || val < 0) val = 0;
+
+            // Расчет прибыли (примерно 15% в месяц с учетом стейкинга/копитрейдинга)
+            let monthly = (val * 0.15).toFixed(0);
+            document.getElementById('res').innerText = "Прибыль: $" + monthly + " / мес";
+
+            // Логика бонусов Bybit 2026 (упрощенная)
+            let bonus = 0;
+            if (val >= 100 && val < 500) bonus = 10;
+            else if (val >= 500 && val < 1000) bonus = 20;
+            else if (val >= 1000 && val < 3000) bonus = 50;
+            else if (val >= 3000 && val < 10000) bonus = 100;
+            else if (val >= 10000 && val < 100000) bonus = 350;
+            else if (val >= 100000) bonus = 5000;
+
+            document.getElementById('bonus').innerText = "Ваш приветственный бонус: $" + bonus;
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Рассчитайте доход на Bybit 2026. Получите бонусы до $30,000 по коду ZQ8L8AV.">
     <meta name="keywords" content="Bybit, калькулятор, бонусы, ZQ8L8AV, копитрейдинг, карта Bybit">
     
     <title>Bybit Rewards Hub 2026</title>
@@ -55,6 +135,7 @@
     </script>
 </body>
 </html>
+
 
 
 
