@@ -3,43 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инвест-Калькулятор 2026</title>
+    <title>Bybit Profit Tool 2026</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #000000; color: white; text-align: center; padding: 20px; }
-        .card { background: #1c1e23; padding: 40px; border-radius: 20px; display: inline-block; border: 1px solid #f7a600; box-shadow: 0 10px 30px rgba(247, 166, 0, 0.1); max-width: 400px; width: 100%; }
-        h1 { color: #f7a600; font-size: 24px; margin-bottom: 10px; }
-        input { padding: 15px; margin: 20px 0; border-radius: 8px; border: 1px solid #333; background: #2b2f36; color: white; width: 80%; font-size: 18px; text-align: center; }
-        .btn { background: #f7a600; color: black; padding: 18px 30px; text-decoration: none; font-weight: 800; border-radius: 8px; display: inline-block; margin-top: 25px; font-size: 16px; transition: 0.3s; text-transform: uppercase; }
-        .btn:hover { background: #ffc400; transform: scale(1.05); }
-        .result { font-size: 1.8em; color: #f7a600; margin: 20px 0; font-weight: bold; }
-        .bonus-text { font-size: 12px; color: #848e9c; margin-top: 15px; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: #0b0e11; color: white; text-align: center; padding: 20px; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .card { background: #161a1e; padding: 35px; border-radius: 24px; border: 1px solid #f7a600; box-shadow: 0 0 40px rgba(247, 166, 0, 0.15); max-width: 400px; width: 100%; }
+        .logo { font-size: 50px; margin-bottom: 10px; }
+        h1 { color: #f7a600; font-size: 26px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        p { color: #848e9c; margin-bottom: 20px; }
+        input { padding: 15px; margin: 10px 0; border-radius: 12px; border: 1px solid #474d57; background: #1e2329; color: #f7a600; width: 90%; font-size: 22px; text-align: center; outline: none; transition: 0.3s; }
+        input:focus { border-color: #f7a600; box-shadow: 0 0 10px rgba(247, 166, 0, 0.3); }
+        .result-box { background: rgba(247, 166, 0, 0.05); padding: 15px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #f7a600; }
+        .result { font-size: 1.5em; color: #f7a600; font-weight: bold; margin-bottom: 5px; }
+        .result-year { font-size: 1em; color: #00c087; font-weight: 500; }
+        .btn { background: linear-gradient(90deg, #f7a600, #ffc400); color: black; padding: 20px 30px; text-decoration: none; font-weight: 800; border-radius: 12px; display: inline-block; margin-top: 15px; font-size: 16px; transition: 0.3s; text-transform: uppercase; animation: pulse 2s infinite; width: 85%; }
+        .btn:hover { transform: scale(1.03); box-shadow: 0 5px 20px rgba(247, 166, 0, 0.4); }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(247, 166, 0, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(247, 166, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(247, 166, 0, 0); } }
+        .bonus-text { font-size: 12px; color: #848e9c; margin-top: 20px; line-height: 1.4; }
     </style>
 </head>
 <body>
     <div class="card">
+        <div class="logo">💰</div>
         <h1>Bybit Доход 2026</h1>
-        <p>Введите сумму инвестиций ($):</p>
-        <input type="number" id="amount" placeholder="Например: 1000" oninput="calc()">
+        <p>Сумма ваших инвестиций ($):</p>
+        <input type="number" id="amount" placeholder="0.00" oninput="calc()">
         
-        <div class="result" id="res">Прибыль в месяц: 0$</div>
+        <div class="result-box">
+            <div class="result" id="res">Прибыль: $0.00 / мес</div>
+            <div class="result-year" id="resYear">За год: $0.00</div>
+        </div>
         
-        <p style="font-size: 14px; color: #ccc;">Рассчитано по средней ставке 10%</p>
-
         <a href="https://www.bybit.com/invite?ref=ZQ8L8AV" target="_blank" class="btn">Забрать бонус $30,000</a>
         
-        <p class="bonus-text">Регистрация по ссылке партнера дает право на эксклюзивные бонусы</p>
+        <p class="bonus-text">Ваша ссылка партнера активирована. Регистрация дает доступ к эксклюзивному пулу наград.</p>
     </div>
 
     <script>
         function calc() {
             let val = document.getElementById('amount').value;
-            if (val < 0) val = 0;
-            // Расчет 10% доходности
-            let profit = (val * 0.1).toFixed(2);
-            document.getElementById('res').innerText = "Прибыль в месяц: " + profit + "$";
+            if (val < 0 || val === "") val = 0;
+            
+            // Расчет 10% в месяц (очень оптимистично, но для калькулятора - огонь!)
+            let monthly = (val * 0.1).toFixed(2);
+            let yearly = (val * 1.2).toFixed(2);
+            
+            document.getElementById('res').innerText = "Прибыль: $" + monthly + " / мес";
+            document.getElementById('resYear').innerText = "За год: $" + yearly;
         }
     </script>
 </body>
-</html></body>
-
 </html>
+
